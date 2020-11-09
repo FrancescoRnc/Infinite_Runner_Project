@@ -27,7 +27,5 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	virtual void MoveRight_Implementation();
-
-	virtual void MoveLeft_Implementation();
+	virtual void MoveHorizontal_Implementation(const FVector newpos);
 };

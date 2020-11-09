@@ -11,12 +11,7 @@ void AInfiniteRunnerPlayerController::BeginPlay()
 	//characterOwned = Cast<AInfiniteRunnerCharacter>();
 }
 
-void AInfiniteRunnerPlayerController::MoveRightControl_Implementation(const TScriptInterface<IInputMovable> &movable)
+void AInfiniteRunnerPlayerController::HorizontalMoveControl_Implementation(const TScriptInterface<IInputMovable> &movable, const FVector newpos)
 {
-	movable->MoveRight_Implementation();
-}
-
-void AInfiniteRunnerPlayerController::MoveLeftControl_Implementation(const TScriptInterface<IInputMovable> &movable)
-{
-	movable->MoveLeft_Implementation();
+	movable->MoveHorizontal_Implementation(newpos);
 }

@@ -4,12 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
-#include "InputMovable.h"
-#include "InputMovableController.generated.h"
+#include "ObstacleLocator.generated.h"
 
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
-class UInputMovableController : public UInterface
+class UObstacleLocator : public UInterface
 {
 	GENERATED_BODY()
 };
@@ -17,7 +16,7 @@ class UInputMovableController : public UInterface
 /**
  * 
  */
-class INFINITERUNNERGAME_API IInputMovableController
+class INFINITERUNNERGAME_API IObstacleLocator
 {
 	GENERATED_BODY()
 
@@ -25,5 +24,5 @@ class INFINITERUNNERGAME_API IInputMovableController
 	public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void HorizontalMoveControl(const TScriptInterface<IInputMovable> &movable, const FVector newpos);
+	void LocateObstacles(UPARAM(ref) TArray<AObstacle*> &stock, const int32 dispositionIndex);
 };

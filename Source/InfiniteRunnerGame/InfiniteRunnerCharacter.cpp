@@ -32,14 +32,7 @@ void AInfiniteRunnerCharacter::SetupPlayerInputComponent(UInputComponent* Player
 
 }
 
-void AInfiniteRunnerCharacter::MoveRight_Implementation()
+void AInfiniteRunnerCharacter::MoveHorizontal_Implementation(const FVector newpos)
 {
-	//SetActorLocation({-240, 100, 80});
-	AddActorWorldOffset({0, 225, 0});
-}
-
-void AInfiniteRunnerCharacter::MoveLeft_Implementation()
-{
-	//SetActorLocation({-240, -100, 80});
-	AddActorWorldOffset({0, -225, 0});
+	SetActorLocation(newpos);
 }

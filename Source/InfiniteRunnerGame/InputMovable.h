@@ -24,8 +24,5 @@ class INFINITERUNNERGAME_API IInputMovable
 	public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void MoveRight();
-
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void MoveLeft();
+	void MoveHorizontal(const FVector newpos);
 };

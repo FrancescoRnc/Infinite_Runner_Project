@@ -24,7 +24,5 @@ class INFINITERUNNERGAME_API AInfiniteRunnerPlayerController : public APlayerCon
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	AInfiniteRunnerCharacter* characterOwned;
 
-	virtual void MoveRightControl_Implementation(const TScriptInterface<IInputMovable> &movable);
-
-	virtual void MoveLeftControl_Implementation(const TScriptInterface<IInputMovable> &movable);
+	virtual void HorizontalMoveControl_Implementation(const TScriptInterface<IInputMovable> &movable, const FVector newpos);
 };
