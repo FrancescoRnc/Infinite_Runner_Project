@@ -26,15 +26,25 @@ public:
 
 	public:
 
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TArray<AObstacle*> MainStock;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TArray<AObstacle*> ActiveItems;
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void CreateStock_Implementation(UPARAM(ref) TArray<AObstacle*> &inStock, const int32 quantity);
+	UFUNCTION(BlueprintCallable)
+	TArray<AObstacle*> ExtractItemsFromStock(const int32 lines);
 
-	virtual void LocateObstacles_Implementation(UPARAM(ref) TArray<AObstacle*> &stock, const int32 dispositionIndex);
+	UFUNCTION(BlueprintCallable)
+	TArray<AObstacle*> ReinsertItemsInStock();
+
+	virtual TArray<AObstacle*> CreateStock_Implementation(
+		TSubclassOf<AObstacle> classType, const int32 quantity);
+
+	virtual void LocateObstacles_Implementation(
+		UPARAM(ref) TArray<AObstacle*> &stock, const int32 dispositionIndex);
 
 };

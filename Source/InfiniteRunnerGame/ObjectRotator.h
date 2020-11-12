@@ -4,11 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
-#include "ObstacleLocator.generated.h"
+#include "ObjectRotator.generated.h"
 
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
-class UObstacleLocator : public UInterface
+class UObjectRotator : public UInterface
 {
 	GENERATED_BODY()
 };
@@ -16,7 +16,7 @@ class UObstacleLocator : public UInterface
 /**
  * 
  */
-class INFINITERUNNERGAME_API IObstacleLocator
+class INFINITERUNNERGAME_API IObjectRotator
 {
 	GENERATED_BODY()
 
@@ -24,6 +24,14 @@ class INFINITERUNNERGAME_API IObstacleLocator
 	public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void LocateObstacles(
-		UPARAM(ref) TArray<AObstacle*> &stock, const int32 dispositionIndex);
+	void Rotate();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void InitializeRotation();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void StartRotating();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void StopRotating();
 };

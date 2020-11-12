@@ -16,7 +16,7 @@ void AObstacleManager::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	CreateStock_Implementation(MainStock, 30);
+	//MainStock = CreateStock_Implementation(MainStock, 30);
 }
 
 // Called every frame
@@ -26,17 +26,47 @@ void AObstacleManager::Tick(float DeltaTime)
 
 }
 
-void AObstacleManager::CreateStock_Implementation(UPARAM(ref) TArray<AObstacle*> &inStock, const int32 quantity)
+TArray<AObstacle*> AObstacleManager::ExtractItemsFromStock(const int32 lines)
 {
-	for (int32 i = 0; i < quantity; i++)
+	TArray<AObstacle*> _tmp;
+
+	auto amount = lines * 3;
+
+	for (int32 i = 0; i < amount; i++)
 	{
-		FActorSpawnParameters spawnParams;
-		auto item = GetWorld()->SpawnActor<AObstacle>(spawnParams);
-		inStock.Add(item);
+		auto item = MainStock.Pop();
+		_tmp.Add(item);
+	}
+
+	return _tmp;
+}
+
+TArray<AObstacle*> AObstacleManager::ReinsertItemsInStock()
+{
+	auto length = ActiveItems.Num;
+	for (int32 i = 0; i < length; i++)
+	{
+		auto item = ActiveItems.Pop();
+		MainStock.Push(item);
 	}
 }
 
-void AObstacleManager::LocateObstacles_Implementation(UPARAM(ref) TArray<AObstacle*> &stock, const int32 dispositionIndex)
+TArray<AObstacle*> AObstacleManager::CreateStock_Implementation(
+	TSubclassOf<AObstacle> classType, const int32 quantity)
 {
-	//auto item = 
+	TArray<AObstacle*> _tmp;
+	for (int32 i = 0; i < quantity; i++)
+	{
+		FActorSpawnParameters spawnParams;
+		auto item = GetWorld()->SpawnActor<AObstacle>(classType, spawnParams);
+		_tmp.Push(item);
+	}
+
+	return _tmp;
+}
+
+void AObstacleManager::LocateObstacles_Implementation(
+	UPARAM(ref) TArray<AObstacle*> &stock, const int32 dispositionIndex)
+{
+	
 }
