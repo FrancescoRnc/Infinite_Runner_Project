@@ -26,6 +26,6 @@ class INFINITERUNNERGAME_API IObstacleCreator
 	public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-		TArray<AObstacle*> CreateStock(
+	TArray<AObstacle*> CreateStock(
 			TSubclassOf<AObstacle> classType, const int32 quantity);
 };

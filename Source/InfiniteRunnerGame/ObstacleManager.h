@@ -12,7 +12,9 @@
 #include "ObstacleManager.generated.h"
 
 UCLASS()
-class INFINITERUNNERGAME_API AObstacleManager : public AActor, public IObstacleCreator, public IObstacleLocator
+class INFINITERUNNERGAME_API AObstacleManager : 
+	public AActor, public IObstacleCreator, 
+	public IObstacleLocator
 {
 	GENERATED_BODY()
 	
@@ -39,7 +41,7 @@ public:
 	TArray<AObstacle*> ExtractItemsFromStock(const int32 lines);
 
 	UFUNCTION(BlueprintCallable)
-	TArray<AObstacle*> ReinsertItemsInStock();
+	void ReinsertItemsInStock();
 
 	virtual TArray<AObstacle*> CreateStock_Implementation(
 		TSubclassOf<AObstacle> classType, const int32 quantity);
@@ -47,4 +49,5 @@ public:
 	virtual void LocateObstacles_Implementation(
 		UPARAM(ref) TArray<AObstacle*> &stock, const int32 dispositionIndex);
 
+	
 };

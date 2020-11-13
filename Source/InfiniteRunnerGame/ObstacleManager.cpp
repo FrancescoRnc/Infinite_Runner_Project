@@ -31,6 +31,7 @@ TArray<AObstacle*> AObstacleManager::ExtractItemsFromStock(const int32 lines)
 	TArray<AObstacle*> _tmp;
 
 	auto amount = lines * 3;
+	if (amount > MainStock.Num()) amount = MainStock.Num();
 
 	for (int32 i = 0; i < amount; i++)
 	{
@@ -41,9 +42,9 @@ TArray<AObstacle*> AObstacleManager::ExtractItemsFromStock(const int32 lines)
 	return _tmp;
 }
 
-TArray<AObstacle*> AObstacleManager::ReinsertItemsInStock()
+void AObstacleManager::ReinsertItemsInStock()
 {
-	auto length = ActiveItems.Num;
+	auto length = ActiveItems.Num();
 	for (int32 i = 0; i < length; i++)
 	{
 		auto item = ActiveItems.Pop();
@@ -70,3 +71,4 @@ void AObstacleManager::LocateObstacles_Implementation(
 {
 	
 }
+

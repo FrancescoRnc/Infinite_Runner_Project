@@ -25,3 +25,7 @@ void ASurfaceWheel::Tick(float DeltaTime)
 
 }
 
+//void ASurfaceWheel::AttachObstacle(const AObstacle &_obs)
+//{
+//
+//}
