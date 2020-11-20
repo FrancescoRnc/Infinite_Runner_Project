@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/StaticMeshComponent.h"
 #include "Components/BoxComponent.h"
 #include "Obstacle.generated.h"
 
@@ -15,9 +16,6 @@ class INFINITERUNNERGAME_API AObstacle : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AObstacle();
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Edit")
-	UStaticMesh* Mesh;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UStaticMeshComponent* MeshComponent;
