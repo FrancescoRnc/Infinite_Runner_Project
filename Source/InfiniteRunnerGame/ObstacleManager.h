@@ -7,13 +7,15 @@
 #include "Containers/CircularQueue.h"
 #include "Engine/World.h"
 #include "Obstacle.h"
+#include "ObstacleRow.h"
 #include "ObstacleCreator.h"
 #include "ObstacleLocator.h"
 #include "ObstacleManager.generated.h"
 
 UCLASS()
 class INFINITERUNNERGAME_API AObstacleManager : 
-	public AActor, public IObstacleCreator, 
+	public AActor, 
+	public IObstacleCreator, 
 	public IObstacleLocator
 {
 	GENERATED_BODY()
@@ -27,6 +29,9 @@ public:
 	virtual void BeginPlay() override;
 
 	public:
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	TArray<UObstacleRow*> Rows;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TArray<AObstacle*> MainStock;

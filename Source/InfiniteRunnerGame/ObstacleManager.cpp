@@ -8,7 +8,6 @@ AObstacleManager::AObstacleManager()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
 // Called when the game starts or when spawned
@@ -17,6 +16,13 @@ void AObstacleManager::BeginPlay()
 	Super::BeginPlay();
 	
 	//MainStock = CreateStock_Implementation(MainStock, 30);
+	Rows = TArray<UObstacleRow*>
+	{
+		NewObject<UObstacleRow>(),
+		NewObject<UObstacleRow>(),
+		NewObject<UObstacleRow>(),
+		NewObject<UObstacleRow>()
+	};
 }
 
 // Called every frame
@@ -70,5 +76,10 @@ void AObstacleManager::LocateObstacles_Implementation(
 	UPARAM(ref) TArray<AObstacle*> &stock, const int32 dispositionIndex)
 {
 	
+
+	for (size_t i = 0; i < stock.Num(); i++)
+	{
+
+	}
 }
 
