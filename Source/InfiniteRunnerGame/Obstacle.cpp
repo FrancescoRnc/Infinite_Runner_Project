@@ -10,10 +10,17 @@ AObstacle::AObstacle()
 	PrimaryActorTick.bCanEverTick = true;
 
 	MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MainMesh"));
-	MeshComponent->SetMobility(EComponentMobility::Static);
+	MeshComponent->SetMobility(EComponentMobility::Movable);
+
 	BoxCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("MainCollision"));
-	//BoxCollision->SetRelativeLocation(FVector(0, 0, 0));
-	BoxCollision->SetMobility(EComponentMobility::Static);
+	BoxCollision->SetMobility(EComponentMobility::Movable);
+	//BoxCollision->SetCollisionObjectType(ECollisionChannel::ECC_GameTraceChannel1);
+	BoxCollision->SetCollisionProfileName("ObstacleProfile");
+
+	MeshComponent->SetupAttachment(RootComponent);
+	BoxCollision->SetupAttachment(MeshComponent);
+
+	SetVisibility_Implementation(false);
 }
 
 // Called when the game starts or when spawned
@@ -34,8 +41,8 @@ void AObstacle::Tick(float DeltaTime)
 
 void AObstacle::SetVisibility_Implementation(const bool value)
 {
-	MeshComponent->SetActive(value);
+	MeshComponent->SetVisibility(value);
 	BoxCollision->SetCollisionEnabled(value ?
-									  ECollisionEnabled::QueryOnly : 
+									  ECollisionEnabled::QueryAndPhysics : 
 									  ECollisionEnabled::NoCollision);
 }

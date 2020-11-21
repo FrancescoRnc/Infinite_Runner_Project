@@ -8,6 +8,7 @@ AObstacleManager::AObstacleManager()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
 }
 
 // Called when the game starts or when spawned
@@ -15,14 +16,6 @@ void AObstacleManager::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	//MainStock = CreateStock_Implementation(MainStock, 30);
-	Rows = TArray<UObstacleRow*>
-	{
-		NewObject<UObstacleRow>(),
-		NewObject<UObstacleRow>(),
-		NewObject<UObstacleRow>(),
-		NewObject<UObstacleRow>()
-	};
 }
 
 // Called every frame
@@ -50,12 +43,7 @@ TArray<AObstacle*> AObstacleManager::ExtractItemsFromStock(const int32 lines)
 
 void AObstacleManager::ReinsertItemsInStock()
 {
-	auto length = ActiveItems.Num();
-	for (int32 i = 0; i < length; i++)
-	{
-		auto item = ActiveItems.Pop();
-		MainStock.Push(item);
-	}
+	
 }
 
 TArray<AObstacle*> AObstacleManager::CreateStock_Implementation(
@@ -65,7 +53,7 @@ TArray<AObstacle*> AObstacleManager::CreateStock_Implementation(
 	for (int32 i = 0; i < quantity; i++)
 	{
 		FActorSpawnParameters spawnParams;
-		auto item = GetWorld()->SpawnActor<AObstacle>(classType, spawnParams);
+		auto item = GetWorld()->SpawnActor<AObstacle>(classType, GetActorTransform(), spawnParams);
 		_tmp.Push(item);
 	}
 
@@ -73,13 +61,30 @@ TArray<AObstacle*> AObstacleManager::CreateStock_Implementation(
 }
 
 void AObstacleManager::LocateObstacles_Implementation(
-	UPARAM(ref) TArray<AObstacle*> &stock, const int32 dispositionIndex)
+	UPARAM(ref) TArray<AObstacle*> &buffer, const int32 dispositionIndex)
 {
-	
-
-	for (size_t i = 0; i < stock.Num(); i++)
+	FAttachmentTransformRules rules
 	{
+		EAttachmentRule::KeepWorld, 
+		EAttachmentRule::KeepWorld, 
+		EAttachmentRule::KeepRelative, false
+	};
 
+	int32 randIndex = FMath::RandRange(1, 6);
+	FTransform t = GetActorTransform();
+	FVector right = GetActorRightVector();
+
+	for (size_t i = 0; i < 3; i++)
+	{
+		if (randIndex % 2 != 0)
+		{
+			auto obs = buffer[i];
+			obs->SetVisibility_Implementation(true);
+			obs->SetActorTransform(t);
+			obs->AttachToActor(AttachTarget, rules);
+			obs->AddActorLocalOffset({0, i * 300.f, 0}, true);
+		}
+		randIndex = randIndex >> 1;
 	}
 }
 

@@ -7,7 +7,6 @@
 #include "Containers/CircularQueue.h"
 #include "Engine/World.h"
 #include "Obstacle.h"
-#include "ObstacleRow.h"
 #include "ObstacleCreator.h"
 #include "ObstacleLocator.h"
 #include "ObstacleManager.generated.h"
@@ -31,13 +30,10 @@ public:
 	public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	TArray<UObstacleRow*> Rows;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TArray<AObstacle*> MainStock;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	TArray<AObstacle*> ActiveItems;
+	AActor* AttachTarget;
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -52,7 +48,7 @@ public:
 		TSubclassOf<AObstacle> classType, const int32 quantity);
 
 	virtual void LocateObstacles_Implementation(
-		UPARAM(ref) TArray<AObstacle*> &stock, const int32 dispositionIndex);
+		UPARAM(ref) TArray<AObstacle*> &buffer, const int32 dispositionIndex);
 
 	
 };
