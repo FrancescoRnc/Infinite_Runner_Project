@@ -46,6 +46,29 @@ void AObstacleManager::ReinsertItemsInStock()
 	
 }
 
+void AObstacleManager::ResetItem(AObstacle* item)
+{
+	FDetachmentTransformRules rules
+	{
+		EDetachmentRule::KeepWorld,
+		EDetachmentRule::KeepWorld,
+		EDetachmentRule::KeepWorld, true
+	};
+	item->DetachFromActor(rules);
+	item->SetVisibility_Implementation(false);
+	item->SetActorLocationAndRotation(GetActorLocation(), GetActorRotation());
+}
+
+AObstacle* AObstacleManager::GetFirstAvailableItem(UPARAM(ref) TArray<AObstacle*> &buffer)
+{
+	for (auto item : buffer)
+	{
+		if (!item->bInUse)
+			return item;
+	}
+	return nullptr;
+}
+
 TArray<AObstacle*> AObstacleManager::CreateStock_Implementation(
 	TSubclassOf<AObstacle> classType, const int32 quantity)
 {
@@ -67,7 +90,7 @@ void AObstacleManager::LocateObstacles_Implementation(
 	{
 		EAttachmentRule::KeepWorld, 
 		EAttachmentRule::KeepWorld, 
-		EAttachmentRule::KeepRelative, false
+		EAttachmentRule::KeepRelative, true
 	};
 
 	int32 randIndex = FMath::RandRange(1, 6);
@@ -78,11 +101,13 @@ void AObstacleManager::LocateObstacles_Implementation(
 	{
 		if (randIndex % 2 != 0)
 		{
-			auto obs = buffer[i];
-			obs->SetVisibility_Implementation(true);
-			obs->SetActorTransform(t);
-			obs->AttachToActor(AttachTarget, rules);
-			obs->AddActorLocalOffset({0, i * 300.f, 0}, true);
+			auto obs = GetFirstAvailableItem(buffer);
+			if (obs)
+			{
+				obs->SetVisibility_Implementation(true);
+				obs->AddActorLocalOffset({0, i * 300.f, 0}, true);
+				obs->AttachToActor(AttachTarget, rules);
+			}
 		}
 		randIndex = randIndex >> 1;
 	}

@@ -44,6 +44,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ReinsertItemsInStock();
 
+	UFUNCTION(BlueprintCallable)
+	void ResetItem(AObstacle* item);
+
+	UFUNCTION(BlueprintCallable)
+	AObstacle* GetFirstAvailableItem(UPARAM(ref) TArray<AObstacle*> &buffer);
+
 	virtual TArray<AObstacle*> CreateStock_Implementation(
 		TSubclassOf<AObstacle> classType, const int32 quantity);
 

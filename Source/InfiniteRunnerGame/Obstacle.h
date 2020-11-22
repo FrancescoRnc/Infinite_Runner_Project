@@ -23,6 +23,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UBoxComponent* BoxCollision;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool bInUse;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

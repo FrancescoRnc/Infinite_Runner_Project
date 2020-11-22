@@ -17,9 +17,11 @@ AObstacle::AObstacle()
 	//BoxCollision->SetCollisionObjectType(ECollisionChannel::ECC_GameTraceChannel1);
 	BoxCollision->SetCollisionProfileName("ObstacleProfile");
 
-	MeshComponent->SetupAttachment(RootComponent);
+	//MeshComponent->SetupAttachment(RootComponent);
+	RootComponent = MeshComponent;
 	BoxCollision->SetupAttachment(MeshComponent);
-
+	BoxCollision->SetRelativeLocation({0, 0, 0});
+	
 	SetVisibility_Implementation(false);
 }
 
@@ -41,8 +43,10 @@ void AObstacle::Tick(float DeltaTime)
 
 void AObstacle::SetVisibility_Implementation(const bool value)
 {
+	bInUse = value;
 	MeshComponent->SetVisibility(value);
+	BoxCollision->SetRelativeLocation({0, 0, 0});
 	BoxCollision->SetCollisionEnabled(value ?
-									  ECollisionEnabled::QueryAndPhysics : 
+									  ECollisionEnabled::QueryOnly : 
 									  ECollisionEnabled::NoCollision);
 }
