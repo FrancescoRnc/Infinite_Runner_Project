@@ -14,4 +14,8 @@ class INFINITERUNNERGAME_API AInfiniteRunnerGameGameModeBase : public AGameModeB
 {
 	GENERATED_BODY()
 	
+	public:
+
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	void GameOver();
 };

@@ -14,4 +14,10 @@ class INFINITERUNNERGAME_API UInfiniteRunnerGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
 	
+	public:
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int32 ScoreValueSaved;
+
+
 };
