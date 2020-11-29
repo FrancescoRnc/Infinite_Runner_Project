@@ -11,6 +11,8 @@ UHealthComponent::UHealthComponent()
 	PrimaryComponentTick.bCanEverTick = false;
 
 	// ...
+
+	CurrentHealth = MaxHealth;
 }
 
 
@@ -35,7 +37,7 @@ void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 bool UHealthComponent::Decrease(int32 amount)
 {
 	CurrentHealth -= amount;
-	return amount <= 0;
+	return CurrentHealth <= 0;
 }
 
 void UHealthComponent::Reset()

@@ -21,6 +21,9 @@ class INFINITERUNNERGAME_API UScoreSystem : public UObject
 	int32 ScoreValue;
 
 	UFUNCTION(BlueprintCallable)
+	int32 Calculate(float time);
+
+	UFUNCTION(BlueprintCallable)
 	void ResetScore();
 
 	UFUNCTION(BlueprintCallable)

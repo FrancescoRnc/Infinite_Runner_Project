@@ -16,7 +16,7 @@ public:
 	// Sets default values for this component's properties
 	UHealthComponent();
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 MaxHealth;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)

@@ -5,6 +5,15 @@
 #include "Kismet/GameplayStatics.h"
 #include "InfiniteRunnerGameInstance.h"
 
+int32 UScoreSystem::Calculate(float time)
+{
+	int32 result = 0;
+
+	result += time * 10;
+
+	return result;
+}
+
 void UScoreSystem::ResetScore()
 {
 
