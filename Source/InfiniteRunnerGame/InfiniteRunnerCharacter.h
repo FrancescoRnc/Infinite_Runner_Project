@@ -16,6 +16,9 @@ public:
 	// Sets default values for this character's properties
 	AInfiniteRunnerCharacter();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FVector> Points;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

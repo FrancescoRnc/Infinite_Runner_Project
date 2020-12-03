@@ -7,17 +7,10 @@
 void AInfiniteRunnerPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-
-	//characterOwned = Cast<AInfiniteRunnerCharacter>();
 }
 
 void AInfiniteRunnerPlayerController::HorizontalMoveControl_Implementation(
 	const TScriptInterface<IInputMovable> &movable, const FVector newpos)
 {
 	movable->MoveHorizontal_Implementation(newpos);
-}
-
-void AInfiniteRunnerPlayerController::SetPoints(const TArray<FVector> points)
-{
-	PlayerPoints = points;
 }

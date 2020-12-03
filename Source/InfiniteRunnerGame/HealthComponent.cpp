@@ -38,6 +38,7 @@ bool UHealthComponent::Decrease(int32 amount)
 {
 	CurrentHealth -= amount;
 	return CurrentHealth <= 0;
+	
 }
 
 void UHealthComponent::Reset()
