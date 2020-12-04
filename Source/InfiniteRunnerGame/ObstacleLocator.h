@@ -25,5 +25,5 @@ class INFINITERUNNERGAME_API IObstacleLocator
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void LocateObstacles(
-		UPARAM(ref) TArray<AObstacle*> &buffer, const int32 dispositionIndex);
+		UPARAM(ref) TArray<AObstacle*> &buffer);
 };

@@ -54,7 +54,7 @@ public:
 		TSubclassOf<AObstacle> classType, const int32 quantity);
 
 	virtual void LocateObstacles_Implementation(
-		UPARAM(ref) TArray<AObstacle*> &buffer, const int32 dispositionIndex);
+		UPARAM(ref) TArray<AObstacle*> &buffer);
 
 	
 };

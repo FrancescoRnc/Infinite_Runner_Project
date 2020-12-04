@@ -84,7 +84,7 @@ TArray<AObstacle*> AObstacleManager::CreateStock_Implementation(
 }
 
 void AObstacleManager::LocateObstacles_Implementation(
-	UPARAM(ref) TArray<AObstacle*> &buffer, const int32 dispositionIndex)
+	UPARAM(ref) TArray<AObstacle*> &buffer)
 {
 	FAttachmentTransformRules rules
 	{
