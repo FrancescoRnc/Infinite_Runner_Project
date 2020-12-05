@@ -16,6 +16,9 @@ class UWidgetVisibility : public UInterface
 /**
  * 
  */
+
+// This Interface is used by Widgets to set their visibility.
+
 class INFINITERUNNERGAME_API IWidgetVisibility
 {
 	GENERATED_BODY()

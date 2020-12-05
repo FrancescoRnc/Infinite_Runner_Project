@@ -16,6 +16,9 @@ class UScoreIncreaser : public UInterface
 /**
  * 
  */
+
+//	UNUSED
+
 class INFINITERUNNERGAME_API IScoreIncreaser
 {
 	GENERATED_BODY()

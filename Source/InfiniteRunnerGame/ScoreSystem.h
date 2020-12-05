@@ -10,6 +10,9 @@
 /**
  * 
  */
+
+// This Actor handles the Score
+
 UCLASS(Blueprintable)
 class INFINITERUNNERGAME_API UScoreSystem : public UObject
 {

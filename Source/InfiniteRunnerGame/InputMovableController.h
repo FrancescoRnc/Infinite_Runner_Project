@@ -17,6 +17,9 @@ class UInputMovableController : public UInterface
 /**
  * 
  */
+
+// Interface that moves any Actor that implements an IInputMovable Interface
+
 class INFINITERUNNERGAME_API IInputMovableController
 {
 	GENERATED_BODY()

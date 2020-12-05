@@ -16,6 +16,9 @@ class UObjectRotator : public UInterface
 /**
  * 
  */
+
+// This Interface gives a constant rotating movement to its Actor
+
 class INFINITERUNNERGAME_API IObjectRotator
 {
 	GENERATED_BODY()

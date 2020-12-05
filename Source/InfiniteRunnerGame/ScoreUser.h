@@ -6,6 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "ScoreUser.generated.h"
 
+// This Component contains the Score Value, used by the System to increase the Score
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class INFINITERUNNERGAME_API UScoreUser : public UActorComponent

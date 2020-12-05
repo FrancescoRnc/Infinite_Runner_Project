@@ -8,6 +8,9 @@
 #include "Components/BoxComponent.h"
 #include "Obstacle.generated.h"
 
+// This is our Obstacle Actor. 
+// It Spawns with others and attach to the rotating Wheel, ready to his our Character.
+
 UCLASS()
 class INFINITERUNNERGAME_API AObstacle : public AActor
 {

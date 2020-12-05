@@ -9,6 +9,9 @@
 /**
  * 
  */
+
+// This is our Game Instance, which contains lesser data or Actors
+
 UCLASS()
 class INFINITERUNNERGAME_API UInfiniteRunnerGameInstance : public UGameInstance
 {

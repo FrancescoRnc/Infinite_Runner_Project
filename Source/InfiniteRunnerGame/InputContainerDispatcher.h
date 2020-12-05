@@ -13,11 +13,6 @@
 UENUM(Blueprintable)
 enum class EInputButtonType : uint8
 {
-	// Here you can add buttons you use for gameplay mechanics
-	//TriggerRight = 0 UMETA(DisplayName = "Trigger Right"),
-	//TriggerLeft = 1 UMETA(DisplayName = "Trigger Left"),
-	//ShoulderRight = 2 UMETA(DisplayName = "Shoulder Right"),
-	//ShoulderLeft = 3 UMETA(DisplayName = "Shoulder Left"),
 	PadRight = 0 UMETA(DisplayName = "D-Pad Right"),
 	PadLeft = 1 UMETA(DisplayName = "D-Pad Left"),
 	TOTAL = 2 UMETA(DisplayName = "None - Do not Use!")

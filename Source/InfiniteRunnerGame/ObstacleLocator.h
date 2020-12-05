@@ -16,6 +16,9 @@ class UObstacleLocator : public UInterface
 /**
  * 
  */
+
+// Interface which handles the disposition of Obstacle Actors in a row given a Stock.
+
 class INFINITERUNNERGAME_API IObstacleLocator
 {
 	GENERATED_BODY()

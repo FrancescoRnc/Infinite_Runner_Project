@@ -9,6 +9,9 @@
 /**
  * 
  */
+
+// This is our Game Mode, that handles Game Over event, and contains our Widgets (by Blueprint)
+
 UCLASS()
 class INFINITERUNNERGAME_API AInfiniteRunnerGameGameModeBase : public AGameModeBase
 {

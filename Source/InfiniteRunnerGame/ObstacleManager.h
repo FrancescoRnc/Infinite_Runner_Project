@@ -11,6 +11,8 @@
 #include "ObstacleLocator.h"
 #include "ObstacleManager.generated.h"
 
+// This Actor creates, locates and manages all Obstacle Actors.
+
 UCLASS()
 class INFINITERUNNERGAME_API AObstacleManager : 
 	public AActor, 
@@ -32,6 +34,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TArray<AObstacle*> MainStock;
 
+	// Reference to the rotating Wheel, where the Obstacles should attach to.
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	AActor* AttachTarget;
 

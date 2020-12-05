@@ -16,6 +16,9 @@ class UInputMovable : public UInterface
 /**
  * 
  */
+
+// Interface used to move its Actor horizontally
+
 class INFINITERUNNERGAME_API IInputMovable
 {
 	GENERATED_BODY()

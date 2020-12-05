@@ -8,6 +8,9 @@
 #include "Obstacle.h"
 #include "SurfaceWheel.generated.h"
 
+// This Actor is used as the environment where our Character and the Obstacles move.
+// It rotates like an Hamster Wheel
+
 UCLASS()
 class INFINITERUNNERGAME_API ASurfaceWheel : public AActor
 {

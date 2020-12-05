@@ -7,6 +7,8 @@
 #include "InputMovable.h"
 #include "InfiniteRunnerCharacter.generated.h"
 
+// This is our possessed Character. This can move horizontally by an Interface
+
 UCLASS()
 class INFINITERUNNERGAME_API AInfiniteRunnerCharacter : public ACharacter, public IInputMovable
 {
@@ -16,6 +18,7 @@ public:
 	// Sets default values for this character's properties
 	AInfiniteRunnerCharacter();
 
+	// Locations where our character have to move by input
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<FVector> Points;
 

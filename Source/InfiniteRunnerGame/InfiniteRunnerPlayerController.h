@@ -11,6 +11,9 @@
 /**
  * 
  */
+
+// This is our Player Controler, which handles our movable Character with a properly Interface
+
 UCLASS()
 class INFINITERUNNERGAME_API AInfiniteRunnerPlayerController : public APlayerController, public IInputMovableController
 {

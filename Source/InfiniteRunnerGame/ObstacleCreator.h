@@ -18,6 +18,9 @@ class UObstacleCreator : public UInterface
 /**
  * 
  */
+
+// Interface which handles the creation of stocks of Obstacles
+
 class INFINITERUNNERGAME_API IObstacleCreator
 {
 	GENERATED_BODY()

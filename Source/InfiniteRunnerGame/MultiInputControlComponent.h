@@ -7,6 +7,9 @@
 #include "InputContainerDispatcher.h"
 #include "MultiInputControlComponent.generated.h"
 
+// A Component version of my actual Input System.
+// This simplifies it by not being a Player Controller,
+// this means that you can attach two of this in order to handle Pressed and Released input events.
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class INFINITERUNNERGAME_API UMultiInputControlComponent : public UActorComponent
@@ -35,9 +38,6 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TMap<EInputButtonType, UInputContainerDispatcher*> InputReleaseMap;
-
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//TArray<TMap<EInputButtonType, UInputContainerDispatcher*>> InputWholeMap;
 
 	// Used to exclude containers, by given button types, to be executed
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
